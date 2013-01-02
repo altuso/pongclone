@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 import altuso.pong.graphics.MainMenu;
+import altuso.pong.graphics.Sprites;
 import altuso.pong.listener.HotKeyListener;
 import basicGameLib.BasicGame;
 
@@ -15,6 +16,7 @@ public class Game extends BasicGame{
 	private MainMenu mainMenu;
 	private static Game instance;
 	private int testX = 600;
+	private int backgroundX;
 
 	public synchronized static Game getInstance() {
 		if(instance == null) {
@@ -23,24 +25,26 @@ public class Game extends BasicGame{
 		return instance;
 	}
 	
-	
-	
-	//TODO: Idee Weltraum bild für den Hintergrund evtl. mit bewegung ? 
-	
 	private Game() {
 		super(1280, "Pong-Clone", 16, 9);
 		mainMenu = new MainMenu();
 		addComponent(mainMenu);
 		addKeyListener(new HotKeyListener());
+		init();
+		
+	}
+	
+	private void init() {
+		Sprites.init();
 	}
 
 	@Override
 	protected void render() {
 		
 		Graphics g = getGameGraphics();
-
+		
 		g.setColor(Color.BLACK);
-		g.fillRect(0, 0, width, height);
+		g.drawImage(Sprites.background, backgroundX, 0, null);
 		
 		g.setColor(Color.GREEN);
 		g.drawString("GAME STARTED", testX, 355);
@@ -53,6 +57,10 @@ public class Game extends BasicGame{
 		testX += 5 * delta;
 		if(testX > width) {
 			testX = 0;
+		}
+		backgroundX -= 1 * delta;
+		if(backgroundX < width * -1) {
+			backgroundX = 0;
 		}
 	}
 	
