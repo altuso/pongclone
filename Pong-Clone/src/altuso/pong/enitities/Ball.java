@@ -35,9 +35,9 @@ public class Ball extends Entity{
 		if(this.boundingBox.intersects(playerBar.getBoundingBox())) {
 			speed *= -1;
 			if(boundingBox.getCenterY() < playerBar.getBoundingBox().getCenterY() - 25) {
-				ySpeed = (random.nextInt(5) + 3) * -1; 
+				ySpeed = (random.nextInt(7) + 3) * -1; 
 			} else if(boundingBox.getCenterY() > playerBar.getBoundingBox().getCenterY() + 25) {
-				ySpeed = random.nextInt(5) + 3;
+				ySpeed = random.nextInt(7) + 3;
 			} else {
 				ySpeed = getySpeed();
 			}
@@ -45,9 +45,9 @@ public class Ball extends Entity{
 		if(this.boundingBox.intersects(aiBar.getBoundingBox())) {
 			speed *= -1;
 			if(boundingBox.getCenterY() < aiBar.getBoundingBox().getCenterY() - 25) {
-				ySpeed = (random.nextInt(2) + 1) * -1; 
+				ySpeed = (random.nextInt(7) + 3) * -1; 
 			} else if(boundingBox.getCenterY() > aiBar.getBoundingBox().getCenterY() + 25) {
-				ySpeed = random.nextInt(2) + 1;
+				ySpeed = random.nextInt(7) + 3;
 			} else {
 				ySpeed = getySpeed();
 			}
