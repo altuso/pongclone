@@ -1,9 +1,5 @@
-package game.graphics;
+package altuso.pong.graphics;
 
-import game.listener.ContinueListener;
-import game.listener.ExitListener;
-import game.listener.StartListener;
-import game.main.Game;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -12,6 +8,11 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import altuso.pong.listener.ContinueListener;
+import altuso.pong.listener.ExitListener;
+import altuso.pong.listener.StartListener;
+import altuso.pong.main.Game;
 
 public class MainMenu extends JPanel{
 

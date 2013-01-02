@@ -1,11 +1,11 @@
-package game.main;
+package altuso.pong.main;
 
-import game.graphics.MainMenu;
-import game.listener.HotKeyListener;
 
 import java.awt.Color;
 import java.awt.Graphics;
 
+import altuso.pong.graphics.MainMenu;
+import altuso.pong.listener.HotKeyListener;
 import basicGameLib.BasicGame;
 
 public class Game extends BasicGame{

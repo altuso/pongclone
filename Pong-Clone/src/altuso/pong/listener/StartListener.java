@@ -1,9 +1,10 @@
-package game.listener;
+package altuso.pong.listener;
 
-import game.main.Game;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import altuso.pong.main.Game;
 
 public class StartListener implements ActionListener{
 

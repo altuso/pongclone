@@ -1,9 +1,10 @@
-package game.listener;
+package altuso.pong.listener;
 
-import game.main.Game;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+
+import altuso.pong.main.Game;
 
 public class HotKeyListener implements KeyListener{
 
