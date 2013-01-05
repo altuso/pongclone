@@ -50,31 +50,10 @@ public class Game extends BasicGame{
 		aiBar.setAiControledEnabled(true);
 
 	}
-
-	@Override
-	protected void render() {
-		
-		Graphics g = getGameGraphics();
-		
-		g.setColor(Color.BLACK);
-		g.drawImage(Sprites.background, backgroundX, 0, null);
-		
-		g.setColor(Color.GREEN);
-		
-		ball.render(g);
-		playerBar.render(g);
-		aiBar.render(g);
-		
-		g.setFont(new Font(Font.SERIF, Font.BOLD, 30));
-		g.drawString("P: " + playerBar.getScore(), 25, 25);
-		
-		g.drawString("P: " + aiBar.getScore(), width - 100, 25);
-		
-		show();
-	}
-
+	
 	@Override
 	protected void update(double delta) {
+		
 		backgroundX -= 1 * delta;
 		if(backgroundX < width * -1) {
 			backgroundX = 0;
@@ -83,6 +62,27 @@ public class Game extends BasicGame{
 		ball.update(delta);
 		playerBar.update(delta);
 		aiBar.update(delta);
+	}
+
+	@Override
+	protected void render() {
+		
+		Graphics g = getGameGraphics();
+		
+		g.clearRect(0, 0, width, height);
+		g.drawImage(Sprites.background, backgroundX, 0, null);
+	
+		g.setColor(Color.GREEN);
+		playerBar.render(g);
+		aiBar.render(g);
+		ball.render(g);
+
+		g.setFont(new Font(Font.SERIF, Font.BOLD, 30));
+		g.drawString("P: " + playerBar.getScore(), 25, 25);
+		
+		g.drawString("P: " + aiBar.getScore(), width - 100, 25);
+		
+		show();
 	}
 	
 	public void startGame() {
