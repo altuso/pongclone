@@ -49,7 +49,7 @@ public class Bar extends Entity{
 				if(yPos >= ball.getY()) {
 					yPos -= speed * delta;
 				}
-			} else if(ball.getX() <= Game.width / 3) {
+			} else if(ball.getX() <= Game.width / 2) {
 				if(yPos <= Game.height / 2) {
 					yPos += speed * delta;
 				} 
