@@ -43,17 +43,17 @@ public class Bar extends Entity{
 		}
 		if(aiControledEnabled) {
 			if(ball.getX() >= Game.width / 3) {
-				if(yPos <= ball.getY()) {
+				if(yPos + width < ball.getY()) {
 					yPos += speed * delta;
 				} 
-				if(yPos >= ball.getY()) {
+				if(yPos + width > ball.getY()) {
 					yPos -= speed * delta;
 				}
 			} else if(ball.getX() <= Game.width / 2) {
-				if(yPos <= Game.height / 2) {
+				if(yPos + width < Game.height / 2) {
 					yPos += speed * delta;
 				} 
-				if(yPos >= Game.height / 2) {
+				if(yPos + width > Game.height / 2) {
 					yPos -= speed * delta;
 				}
 			}
