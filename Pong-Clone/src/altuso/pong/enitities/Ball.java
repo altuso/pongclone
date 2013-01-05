@@ -14,6 +14,7 @@ public class Ball extends Entity{
 	private Rectangle boundingBox;
 	private Bar playerBar, aiBar;
 	private Random random = new Random();
+	private boolean scored = false;
 	
 	public Ball(int width, int height, Bar playerBar, Bar aiBar) {
 		this.width = width;
@@ -22,7 +23,7 @@ public class Ball extends Entity{
 		this.aiBar = aiBar;
 		setPosition(Game.width / 2 + width / 2, Game.height / 2 - height / 2);
 		boundingBox = new Rectangle(width, height);
-		speed = 10;
+		speed = 15;
 		ySpeed = 0;
 	}
 	
@@ -33,21 +34,29 @@ public class Ball extends Entity{
 		boundingBox.setBounds(getX(), getY(), width, height);
  
 		if(this.boundingBox.intersects(playerBar.getBoundingBox())) {
+			if(scored) {
+				speed = 15;
+				scored = false;
+			}
 			speed *= -1;
 			if(boundingBox.getCenterY() < playerBar.getBoundingBox().getCenterY() - 25) {
-				ySpeed = (random.nextInt(7) + 3) * -1; 
+				ySpeed = (random.nextInt(10) + 5) * -1; 
 			} else if(boundingBox.getCenterY() > playerBar.getBoundingBox().getCenterY() + 25) {
-				ySpeed = random.nextInt(7) + 3;
+				ySpeed = random.nextInt(10) + 5;
 			} else {
 				ySpeed = getySpeed();
 			}
 		}
 		if(this.boundingBox.intersects(aiBar.getBoundingBox())) {
+			if(scored) {
+				speed = 15;
+				scored = false;
+			}
 			speed *= -1;
 			if(boundingBox.getCenterY() < aiBar.getBoundingBox().getCenterY() - 25) {
-				ySpeed = (random.nextInt(7) + 3) * -1; 
+				ySpeed = (random.nextInt(10) + 5) * -1; 
 			} else if(boundingBox.getCenterY() > aiBar.getBoundingBox().getCenterY() + 25) {
-				ySpeed = random.nextInt(7) + 3;
+				ySpeed = random.nextInt(10) + 5;
 			} else {
 				ySpeed = getySpeed();
 			}
@@ -58,10 +67,14 @@ public class Ball extends Entity{
 		if(xPos + width >= Game.width ) {
 			setPosition(Game.width / 2 + width / 2, Game.height / 2 - height / 2);
 			ySpeed = 0;
+			speed = 5;
+			scored = true;
 			playerBar.addScore();
 		} else if(xPos <= 0) {
 			setPosition(Game.width / 2 + width / 2, Game.height / 2 - height / 2);
 			ySpeed = 0;
+			speed = -5;
+			scored = true;
 			aiBar.addScore();
 		}		
 	}

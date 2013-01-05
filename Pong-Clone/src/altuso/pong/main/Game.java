@@ -46,6 +46,8 @@ public class Game extends BasicGame{
 		playerBar.setControlEnabled(true);
 		aiBar = new Bar(width - 25, height / 2 - 75, 25, 150);
 		ball = new Ball(20, 20, playerBar, aiBar);
+		aiBar.setBall(ball);
+		aiBar.setAiControledEnabled(true);
 
 	}
 
