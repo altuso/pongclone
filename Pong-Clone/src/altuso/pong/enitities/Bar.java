@@ -41,6 +41,7 @@ public class Bar extends Entity{
 				} 
 			}
 		}
+		
 		if(aiControledEnabled) {
 			if(ball.getX() >= Game.width / 3) {
 				if(yPos + width < ball.getY()) {
