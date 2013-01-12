@@ -36,14 +36,14 @@ public class MainMenu extends JPanel{
 		this.setBackground(Color.BLACK);
 		this.setLayout(null);
 		
-		startButton = new JButton(new ImageIcon(getClass().getResource("/resources/start.png")));
+		startButton = new JButton(new ImageIcon(getClass().getResource("/start.png")));
 		startButton.addActionListener(new StartListener());
-		exitButton = new JButton(new ImageIcon(getClass().getResource("/resources/exit.png")));
+		exitButton = new JButton(new ImageIcon(getClass().getResource("/exit.png")));
 		exitButton.addActionListener(new ExitListener());
-		continueButton = new JButton(new ImageIcon(getClass().getResource("/resources/continue.png")));
+		continueButton = new JButton(new ImageIcon(getClass().getResource("/continue.png")));
 		continueButton.addActionListener(new ContinueListener());
-	    headerLabel = new JLabel(new ImageIcon(getClass().getResource("/resources/header.png")));
-	    footerLabel = new JLabel(new ImageIcon(getClass().getResource("/resources/footer.png")));
+	    headerLabel = new JLabel(new ImageIcon(getClass().getResource("/header.png")));
+	    footerLabel = new JLabel(new ImageIcon(getClass().getResource("/footer.png")));
 		
 	    this.add(headerLabel);
 	    headerLabel.setBounds(290, 50, 700, 75);
